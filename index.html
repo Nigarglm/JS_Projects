@@ -24,20 +24,19 @@
 </head>
 <body>
     <div>
-        <button class="openModal p-5 text-base text-[#fff] font-medium bg-blue-900 font-roboto rounded-[10px] border-2 border-transparent mt-5 ml-5">Open Modal</button>
+        <button class="openModalBtn p-5 text-base text-[#fff] font-medium bg-blue-900 font-roboto rounded-[10px] border-2 border-transparent mt-5 ml-5">Open Modal</button>
     </div>
     <div class="backdrop bg-black opacity-0.2"></div>
-    <div class="modalEl p-5 text-black bg-white font-roboto rounded-[10px] border-2 border-gray-400 w-[500px] mt-5 ml-5">
+    <div class="modal hidden p-5 text-black bg-white font-roboto rounded-[10px] border-2 border-gray-400 w-[500px] mt-5 ml-5">
         <div class="flex items-center justify-between">
             <h1 class="text-base font-bold">Modal Example</h1>
-            <i class="fa-solid fa-x"></i>
+            <i class="closeModalBtn fa-solid fa-x"></i>
         </div>
         <hr class="w-[100%] mb-5 mt-5">
         <form>
             <label for="password" class="text-sm font-medium text-gray-400">Password</label>
-            <input class="relative w-[100%] border-2 border-gray-400 p-2 rounded-[10px]" type="password" id="password" placeholder="Enter your password" required>
-            <i class="absolute ml-[-30px] mt-3 fa-regular fa-eye"></i>
-            <i class="hidden absolute ml-[-30px] mt-3 fa-regular fa-eye-slash"></i>
+            <input class="password relative w-[100%] border-2 border-gray-400 p-2 rounded-[10px]" type="password" id="password" placeholder="Enter your password" required>
+            <i class="toggleTypeBtn eyeIcon hidden absolute ml-[-30px] mt-3 fa-regular fa-eye-slash"></i>
         </form>
         <hr class="w-[100%] mt-5">
         <div class="flex items-center justify-end gap-[10px] mt-5">
@@ -45,6 +44,7 @@
             <button class="saveBtn p-3 text-base text-[#fff] font-medium bg-blue-900 font-roboto rounded-[10px] border-2 border-transparent">Save changes</button>
         </div>
     </div>
+    <div class="backdrop hidden bg-black bg-opacity-0.2"></div>
 
     <script src="./script.js"></script>
 </body>
