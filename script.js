@@ -1,34 +1,42 @@
-const openModalBtn = document.querySelectorAll('.openModalBtn');
-const modal = document.querySelectorAll('.modal');
-const backdrop = document.querySelectorAll('.backdrop');
-const closeModalBtn = document.querySelectorAll('.closeModalBtn');
-const passwordElement = document.querySelectorAll('.password');
-const closeBtn = document.querySelectorAll('.closeBtn');
-const saveBtn = document.querySelectorAll('.saveBtn');
-const toggleTypeBtn = document.querySelectorAll('.toggleTypeBtn');
+const openModalBtn = document.getElementById("openModalBtn");
+const modalBtn = document.getElementById("modal");
+const backdrop = document.getElementById("backdrop");
+const closeModalBtn = document.getElementById("closeModalBtn");
+const toggleTypeBtn = document.getElementById("toggleTypeBtn");
+const eyeIcon = document.querySelector("#toggleTypeBtn i");
+
+const closeBtn = document.getElementById("closeBtn");
+const saveBtn = document.getElementById("saveBtn");
+const passwordElement = document.getElementById("password");
 
 
 const openModal = () => {
     modal.classList.remove("hidden");
     backdrop.classList.remove("hidden");
-}
+};
+
 
 const closeModal = () => {
     modal.classList.add("hidden");
     backdrop.classList.add("hidden");
-}
+};
 
-openModalBtn.addEventListener("click",openModal);
+openModalBtn.addEventListener("click", openModal);
 
-backdrop.addEventListener("click",closeModal);
-closeModalBtn.addEventListener("click",closeModal);
-closeBtn.addEventListener("click",closeModal);
-saveBtn.addEventListener("click",closeModal);
+const closeElements = [backdrop, closeModalBtn, closeBtn, saveBtn];    
 
+closeElements.forEach((element) => {
+    element.addEventListener("click", closeModal);
+});
 
 toggleTypeBtn.addEventListener("click", () => {
-    passwordElement.type = passwordElement.type === "text" ? "password" : "text";
-    eyeIcon.classList = passwordElement.type === "text"
-    ? "fa-regular fa-eye"
-    : "fa-regular fa-eye-slash";
-})
+    if (passwordElement.type === "password") {
+        passwordElement.type = "text";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    } else {
+        passwordElement.type = "password";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    }
+});
