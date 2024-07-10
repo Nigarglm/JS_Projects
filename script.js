@@ -1,42 +1,27 @@
-const addBtn = document.getElementById("add");
+const accordionItems = document.querySelectorAll(".accordionItemTitle");
+const accordionTexts = document.querySelectorAll(".accordionItemText");
+const accordionIcons = document.querySelectorAll(".accordionIcon");
 
-const taskListContainer = document.querySelector(".taskList");
-const taskList = document.querySelector(".taskList ul");
-const addInput = document.getElementById("input");
-
-const tasks = [];         
-addBtn.addEventListener ("click", (event) => {
-    event.preventDefault();                        
-   const givenText = addInput.value;          
-   if (givenText === "") {               
-    return;
-   } 
-  
-    tasks.push(givenText);           
-    displayTasks ();
-    addInput.value = "";        
-});
-
-const displayTasks = () => {
-    taskList.innerHTML = "";         
-    tasks.forEach((task) => {
-        taskList.innerHTML += `<li>            
-        <span>${task}</span>                             
-        <button class="btn delete">Delete Task</button>     
-        </li`;
-    });
-
-    const deleteBtns = document.querySelectorAll(".delete");
-    deleteBtns.forEach((deleteBtn, index) => {
-    deleteBtn.addEventListener("click", () => {
-    deleteTask (index);             
-    });
-    });
+const toggleAccordionItem = (number) => {
+    const isOpen = !accordionTexts[number].classList.contains("hidden");
+    resetStyles();
+    if(!isOpen) {
+    accordionTexts[number].classList.remove("hidden");       
+    accordionIcons[number].classList.add("rotate-180");   
+    accordionItems[number].classList.add("bg-gray-100");
+    }
 };
 
-   const deleteTask = (index) => {
-    tasks.splice (index, 1);
-    displayTasks();          
-   };
+accordionItems.forEach((item, index, array) => {
+    item.addEventListener("click", () => {
+        toggleAccordionItem(index);
+    });
+});
 
-  
+const resetStyles = () => {
+    for (let i = 0; i < accordionIcons.length; i++) {
+    accordionTexts[i].classList.add("hidden");
+    accordionIcons[i].classList.remove("rotate-180");
+    accordionItems[i].classList.remove("bg-gray-100");
+    }
+};

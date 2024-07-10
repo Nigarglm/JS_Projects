@@ -3,27 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Accordion</title>
+    <!-- Font awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="h-screen flex items-center justify-center">
+<!-- Accordion -->
+<div class="w-[800px] mx-auto">
+<!-- Accordion Item -->
 <div>
-
-<div class="addTask">
-<form >
-<input type="text" id="input"  placeholder = "Add your task">
-<button id="add" class="btn">Add Task</button>
-</form>
+<button class="flex items-center justify-between w-full p-5 font-medium text-gray-500
+border-b-0 border rounded-t-xl accordionItemTitle">
+<span>Item 1</span>
+<img src="./assets/reshot-icon-arrow-chevron-up-9ECRMJ2GNT.svg" alt="" class="h-4 accordionIcon">
+</button>
+<div class="p-5 border border-b-0 border-gray-200 hidden accordionItemText">
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum cumque eveniet nulla quibusdam officiis quo in, iste et accusamus esse qui! Nulla at a odit. 
+    Illum fugit cum explicabo quae optio ab.
+</p>
+</div>
 </div>
 
-<div class="taskList">
-<ul>
-</ul>
+<div>
+<button class="flex items-center justify-between w-full p-5 font-medium text-gray-500
+border-b-0 border accordionItemTitle">
+<span>Item 2</span>
+<img src="./assets/reshot-icon-arrow-chevron-up-9ECRMJ2GNT.svg" alt="" class="h-4 accordionIcon">
+</button>
+<div class="p-5 border border-b-0 border-gray-200 hidden accordionItemText">
+ <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quasi, tenetur a id nesciunt consequatur debitis libero, 
+    voluptatum animi veniam illo ducimus consectetur harum enim, nostrum ex nobis.
+</p>
+</div>
 </div>
 
+<div>
+<button class="flex items-center justify-between w-full p-5 font-medium text-gray-500
+border accordionItemTitle">
+<span>Item 3</span>
+<img src="./assets/reshot-icon-arrow-chevron-up-9ECRMJ2GNT.svg" alt="" class="h-4 accordionIcon">
+</button>
+
+<div class="p-5 border border-b-0 border-gray-200 hidden accordionItemText">
+ <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ab consequuntur repellat odio ex libero, 
+    exercitationem, totam harum facere at nobis porro, officia itaque cum atque.
+</p>
+</div>
+</div>
 
 </div>
-    
- <script src="./script.js"></script>   
-</body>
+<script src="./script.js"></script>
+
+</body >
 </html>
